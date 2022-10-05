@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _POSIX_C_SOURCE 200809L
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -47,10 +48,6 @@ char *push_value;
 void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 char **tokenize(char *s);
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t b);
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
-char *_strcpy(char *dest, const char *src);
 
 /* Opcodes Function Prototypes */
 void push(stack_t **stack, unsigned int line_number);
