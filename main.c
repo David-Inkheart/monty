@@ -45,6 +45,9 @@ void get_cmd(FILE *fp)
 			line[length - 1] = '\0';
 		/* array containing the opcode and data */
 		arr = tokenize(line);
+
+		if (check_comment(arr))
+			continue;
 		/* Get opcode corresponding function */
 		f = get_op_func(arr[0]);
 		if (f == NULL)

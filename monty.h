@@ -50,6 +50,7 @@ void free_stack(stack_t *stack);
 char **tokenize(char *s);
 void get_cmd(FILE *fp);
 int empty_line(const char *s);
+int check_comment(char **arr);
 
 /* Opcodes Function Prototypes */
 void push(stack_t **stack, unsigned int line_number);
@@ -59,5 +60,10 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+/* void divs(stack_t **stack, unsigned int line_number); */
+/* void mul(stack_t **stack, unsigned int line_number); */
+
 
 #endif
