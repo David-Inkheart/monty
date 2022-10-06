@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	/* Confirm the file has opened succesfully */
 	if (fp == NULL)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
-	
+
 	get_cmd(fp);
 	fclose(fp);
 	return (0);
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 }
 /**
   * get_cmd - gets the command for each opcode
-  * fp: opened file
+  * @fp: opened file
   * Return: nothing
   */
 void get_cmd(FILE *fp)
@@ -69,7 +69,7 @@ void get_cmd(FILE *fp)
   */
 int empty_line(const char *s)
 {
-	while(*s != '\0')
+	while (*s != '\0')
 	{
 		if (!isspace((const char)*s))
 			return (0);
