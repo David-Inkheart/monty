@@ -3,7 +3,7 @@
 /**
  * check_comment - Checks if line is comment and changes it accordingly
  * @arr: pointer to token string
- * Return: 1 if comment, 0 if not a comment
+ * Return: 1 if comment is present, else 0
  */
 
 int check_comment(char **arr)
