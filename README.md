@@ -1,6 +1,6 @@
 ## Monty Interpreter
-Monty 0.98 is a scripting language that is first compiled into Monty byte codes. The Monty bytes code files are usually of .m extension and contain one instruction ler line.
-The interpreter reads the files and interprets the opcodes therin.
+Monty 0.98 is a scripting language that is first compiled into Monty byte codes. The Monty bytes code files are usually of `.m` extension and contain one instruction per line.
+The interpreter reads the files and interprets the opcodes therein.
 
 ### Usage
 Available files are compiled in this format:
@@ -19,7 +19,7 @@ To run the interpreter:
 Available Operation codes:
 | Opcode | Description |
 |---------------- | -----------|
-|push   | Pushes an element to the stack. e.g (push 7 # pushes 7 into the stack)|
+|push   | Pushes an element to the stack. e.g (`push <int>` # pushes `<int>` unto the stack)|
 |pall   | Prints all the values on the stack, starting from the top of the stack.|
 |pint   | Prints the value at the top of the stack.|
 |pop    | Removes the top element of the stack.|
@@ -36,3 +36,20 @@ Available Operation codes:
 * Monty byte code files can contain blank lines and any additional text after the opcode or its required argument is ignored. 
 * There can be any number of spaces before or after the opcode and its argument.
 
+#### Example
+
+Push values onto the stack and prints them, rhen print the top element of the stack.
+
+```
+$ cat push_pall_pint.m
+push 1
+push 2
+push 3
+pall
+pint
+$ ./monty push_pall_pint.m
+3
+2
+1
+3
+```
