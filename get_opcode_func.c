@@ -19,11 +19,13 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 				{"swap", swap},
 				{"nop", nop},
 				{"sub", sub},
+				{"div", divs},
+				{"mul", mul},
 				{"mod", mod},
 				{NULL, NULL}
 	};
 
-	while (i < 9)
+	while (opcodes[i].opcode != NULL)
 	{
 		if (strcmp(opcodes[i].opcode, s) == 0)
 		{
