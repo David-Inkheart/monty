@@ -48,6 +48,8 @@ char *push_value;
 void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 char **tokenize(char *s);
+void get_cmd(FILE *fp);
+int empty_line(const char *s);
 
 /* Opcodes Function Prototypes */
 void push(stack_t **stack, unsigned int line_number);

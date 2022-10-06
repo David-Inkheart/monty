@@ -8,12 +8,6 @@
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *line = NULL, **arr;
-	size_t len = 0;
-	stack_t *stack = NULL;
-	void (*f)(stack_t **stack, unsigned int line_number);
-	unsigned int line_number;
-	int length = 0;
 
 	if (argc != 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
@@ -22,10 +16,31 @@ int main(int argc, char *argv[])
 	/* Confirm the file has opened succesfully */
 	if (fp == NULL)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
+	
+	get_cmd(fp);
+	fclose(fp);
+	return (0);
+
+}
+/**
+  * get_cmd - gets the command for each opcode
+  * fp: opened file
+  * Return: nothing
+  */
+void get_cmd(FILE *fp)
+{
+	size_t len = 0;
+	char *line = NULL, **arr;
+	stack_t *stack = NULL;
+	void (*f)(stack_t **stack, unsigned int line_number);
+	unsigned int line_number = 1;
+	int length = 0;
+
 	/* Read the file one line at a time */
-	line_number = 1;
 	while ((length = getline(&line, &len, fp)) != -1)
 	{
+		if (empty_line(line))
+			continue;
 		if (line[length - 1] == '\n')
 			line[length - 1] = '\0';
 		/* array containing the opcode and data */
@@ -45,6 +60,21 @@ int main(int argc, char *argv[])
 		f(&stack, line_number);
 		line_number++;
 	}
-	free(line), free_stack(stack), fclose(fp);
-	return (0);
+	free(line), free_stack(stack);
 }
+/**
+  * empty_line - checks for an empty line
+  * @s: string to check
+  * Return: success
+  */
+int empty_line(const char *s)
+{
+	while(*s != '\0')
+	{
+		if (!isspace((const char)*s))
+			return (0);
+		s++;
+	}
+	return (1);
+}
+
