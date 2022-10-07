@@ -48,18 +48,18 @@ void mod(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * stack - sets the format of the data to a stack
+ * stack_mode - sets the format of the data to a stack
  * @stack: head of the stack
  * @line_number: line number of the opcode
  */
 
 
-/** void stack(stack_t **stack, unsigned int line_number)
-* {
-*	(void) stack;
-*	(void) line_number;
-*}
-*/
+void stack_mode(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}
+
 
 /**
  * queue - sets the format of the data to a queue
@@ -67,8 +67,8 @@ void mod(stack_t **stack, unsigned int line_number)
  * @line_number: line number of the opcode
  */
 
-/* void queue(stack_t **stack, unsigned int line_number) */
-/*{ */
-/*	(void) stack; */
-/*	(void) line_number; */
-/* } */
+void queue(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}

@@ -60,26 +60,25 @@ void sub(stack_t **stack, unsigned int line_number)
  * @line_number: line number
  */
 
-/** void rotr(stack_t **stack, unsigned int line_number)
-*{
-*	stack_t *temp, *temp2;
-*
-*	(void) ln;
-*	temp = (*stack);
-*	if (temp == NULL)
-*		return;
-*	temp2 = temp;
-*	if (temp->next == NULL)
-*		;
-*	else
-*	{
-*		while (temp2->next != NULL)
-*			temp2 = temp2->next;
-*		temp2->prev->next = NULL;
-*		temp2->prev = NULL;
-*		temp2->next = temp;
-*		temp->prev = temp2;
-*		(*stack) = temp2;
-*	}
-*}
-*/
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp, *temp2;
+
+	(void) line_number;
+	temp = (*stack);
+	if (temp == NULL)
+		return;
+	temp2 = temp;
+	if (temp->next == NULL)
+		;
+	else
+	{
+		while (temp2->next != NULL)
+			temp2 = temp2->next;
+		temp2->prev->next = NULL;
+		temp2->prev = NULL;
+		temp2->next = temp;
+		temp->prev = temp2;
+		(*stack) = temp2;
+	}
+}

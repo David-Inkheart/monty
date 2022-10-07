@@ -20,3 +20,30 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+
+/**
+ * rotl - R
+ * @stack: Stack to print the element from
+ * @line_number: The line number of the opcode currently being executed
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+	stack_t *last = *stack;
+	(void) line_number;
+
+	if (tmp == NULL || tmp->next == NULL)
+		;
+	else
+	{
+		while (last->next != NULL)
+			last = last->next;
+
+		last->next = tmp;
+		tmp->prev = last;
+		tmp = tmp->next;
+		tmp->prev->next = NULL;
+		tmp->prev = NULL;
+		(*stack) = tmp;
+	}
+}
