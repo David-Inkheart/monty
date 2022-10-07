@@ -13,13 +13,13 @@ void divs(stack_t **stack, unsigned int line_number)
 
 	if (tmp == NULL || tmp->next == NULL)
 	{
-		fprintf(stderr, "L%d>: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
 	if (tmp->n == 0)
 	{
-		fprintf(stderr, "L%d>: division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -57,15 +57,18 @@ void mul(stack_t **stack, unsigned int line_number)
  */
 void pchar(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
+	stack_t *tmp;
 	int c;
 
-	c = tmp->n;
-	if (tmp == NULL)
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+
+	tmp = *stack;
+
+	c = tmp->n;
 
 	if (c < 0 || c > 127)
 	{

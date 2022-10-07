@@ -13,19 +13,18 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (push_value[i] == '\0')
 	{
-		fprintf(stderr, "L%d: usage: push integer\n",
-					line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	for (i = 0; push_value[i] != '\0'; i++)
 	{
+		if (push_value[i] == '-')
+			continue;
 		if (isdigit(push_value[i]) == 0)
 		{
-			fprintf(stderr, "L%d: usage: push integer\n",
-					line_number);
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-
 	}
 	if (new_node == NULL)
 	{
@@ -104,7 +103,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		free_stack(*stack);
-		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
