@@ -38,16 +38,16 @@ Available Operation codes:
 
 #### Example
 
-Push values onto the stack and prints them, rhen print the top element of the stack.
+Push values onto the stack and prints them, then print the top element of the stack.
 
 ```
-$ cat push_pall_pint.m
+$ cat test.m
 push 1
 push 2
 push 3
 pall
 pint
-$ ./monty push_pall_pint.m
+$ ./monty test.m
 3
 2
 1
