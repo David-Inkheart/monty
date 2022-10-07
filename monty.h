@@ -52,7 +52,7 @@ void get_cmd(FILE *fp);
 int empty_line(const char *s);
 int check_comment(char **arr);
 
-/* Opcodes Function Prototypes */
+/* Opcode Functions Prototypes */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
