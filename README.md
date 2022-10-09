@@ -30,8 +30,13 @@ Available Operation codes:
 |div    | Divides the top element of the stack from the second top element. The result is then stored in the second node, and the first node is removed.|
 |mul | Multiplies the top two elements of the stack. The result is then stored in the second node, and the first node is removed.|
 |mod    | Computes the remainder of the top two elements of the stack from the second top element. The result is then stored in the second node, and the first node is removed.|
-|#      | When the first non-space of a line is a # the line will be treated as a comment.|
-|pchar  | Prints the integer stored in the top of the stack as its ascii value representation.|
+|#      | When the first non-space of a line is a `#` the line will be treated as a comment.|
+|pchar  | Prints the integer stored at the top of the stack as its ascii value representation.|
+|pstr   | Prints the integers stored in the stack as their ascii value representation. It stops printing when the value is 0, when the stack is over and when the value of the element is a non-ascii value.|
+|rotl   | Rotates the top of the stack to the bottom.|
+|rotr   | Rotates the bottom of the stack to the top.|
+|stack  | This is the default behavior. Sets the format of the data into a stack (LIFO).|
+|queue  | Sets the format of the data into a queue (FIFO).|
 
 * Monty byte code files can contain blank lines and any additional text after the opcode or its required argument is ignored. 
 * There can be any number of spaces before or after the opcode and its argument.
